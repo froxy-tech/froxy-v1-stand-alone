@@ -20,7 +20,12 @@ const OWNER_NUMBER = digitsOnly(process.env.OWNER_NUMBER || "");
 const SITE_ORIGIN = process.env.SITE_ORIGIN || "";
 const SUPPORT_LINK = process.env.SUPPORT_LINK || "";
 const PREFIX = process.env.PREFIX || ".";
-const logger = pino({ level: process.env.LOG_LEVEL || "warn" });
+const logger = pino({ level: process.env.LOG_LEVEL || "warn" 
+  const fs = require("fs");
+const path = require("path");
+
+const DATA_DIR = process.env.DATA_DIR || "/app/data";
+const SESSIONS_DIR = path.join(DATA_DIR, "sessions");
 
 fs.mkdirSync(SESSIONS_DIR, { recursive: true });
 app.disable("x-powered-by");
